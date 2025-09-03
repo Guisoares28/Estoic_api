@@ -14,9 +14,9 @@ public interface IPensadorCrud {
 
     Optional<List<PensadorResponse>> recuperarTodosOsPensadores();
 
-    Optional<List<PensadorResponse>> recuperarPensadoresPorDataNascimento(Date data_nascimento);
+    Optional<List<PensadorResponse>> recuperarPensadoresPorAnoNascimento(Integer ano_nascimento);
 
-    Optional<List<PensadorResponse>> recuperarPensadoresPorDataMorte(Date data_morte);
+    Optional<List<PensadorResponse>> recuperarPensadoresPorAnoDaMorte(Integer ano_morte);
 
     Optional<List<PensadorResponse>> recuperarPensadoresPorLocalNascimento(String local_nascimento);
 

@@ -8,10 +8,10 @@ public record PensadorRequest(
         String nome,
         @NotBlank(message = "nome completo não pode ser vazio")
         String nome_completo,
-        @NotBlank(message = "data nascimento não pode ser vazia")
-        String data_nascimento,
-        @NotBlank(message = "data morte não pode ser vazia")
-        String data_morte,
+
+        Integer ano_nascimento,
+
+        Integer ano_morte,
         @NotBlank(message = "local nascimento não pode ser vazio")
         String local_nascimento,
         @NotBlank(message = "biografia não pode ser vazio")

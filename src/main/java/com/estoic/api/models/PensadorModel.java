@@ -2,6 +2,7 @@ package com.estoic.api.models;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,9 +19,9 @@ public class PensadorModel {
 
     private String nome_completo;
 
-    private Date data_nascimento;
+    private Integer ano_nascimento;
 
-    private Date data_morte;
+    private Integer ano_morte;
 
     private String local_nascimento;
 
@@ -31,6 +32,15 @@ public class PensadorModel {
 
     @OneToMany(mappedBy = "pensador", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<FraseModel> frases = new HashSet<>();
+
+    public PensadorModel(String nome, String nome_completo, Integer ano_nascimento, Integer ano_morte, String local_nascimento, String biografia_resumida) {
+        this.nome = nome;
+        this.nome_completo = nome_completo;
+        this.ano_nascimento = ano_nascimento;
+        this.ano_morte = ano_morte;
+        this.local_nascimento = local_nascimento;
+        this.biografia_resumida = biografia_resumida;
+    }
 
     public Long getId() {
         return id;
@@ -48,20 +58,20 @@ public class PensadorModel {
         this.nome = nome;
     }
 
-    public Date getData_nascimento() {
-        return data_nascimento;
+    public Integer getAno_nascimento() {
+        return ano_nascimento;
     }
 
-    public void setData_nascimento(Date data_nascimento) {
-        this.data_nascimento = data_nascimento;
+    public void setAno_nascimento(Integer ano_nascimento) {
+        this.ano_nascimento = ano_nascimento;
     }
 
-    public Date getData_morte() {
-        return data_morte;
+    public Integer getAno_morte() {
+        return ano_morte;
     }
 
-    public void setData_morte(Date data_morte) {
-        this.data_morte = data_morte;
+    public void setAno_morte(Integer ano_morte) {
+        this.ano_morte = ano_morte;
     }
 
     public String getLocal_nascimento() {
