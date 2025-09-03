@@ -60,9 +60,4 @@ public class PensadorService implements IPensadorCrud {
                 .orElseThrow(() -> new RuntimeException("Nenhum pensador encontrado com o local informado"));
         return PConversor.converterModelParaResponse(pensadoresModels);
     }
-
-    @Override
-    public List<PensadorResponse> recuperarPensadorPorObra(String nomeObra) {
-        return null;
-    }
 }
