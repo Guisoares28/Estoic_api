@@ -17,6 +17,9 @@ public class ObraModel {
 
     private String descricao;
 
+    @Column(unique = true)
+    private String tema;
+
     @ManyToOne
     @JoinColumn(name = "pensador_id")
     private PensadorModel pensador;
@@ -59,5 +62,13 @@ public class ObraModel {
 
     public void setPensador(PensadorModel pensador) {
         this.pensador = pensador;
+    }
+
+    public String getTema() {
+        return tema;
+    }
+
+    public void setTema(String tema) {
+        this.tema = tema;
     }
 }

@@ -1,4 +1,5 @@
 package com.estoic.api.dtos.PensadorDto;
+import com.estoic.api.dtos.PensadorDto.FraseDto.FraseResponse;
 import com.estoic.api.dtos.PensadorDto.ObraDto.ObraResponse;
 
 import java.util.Date;

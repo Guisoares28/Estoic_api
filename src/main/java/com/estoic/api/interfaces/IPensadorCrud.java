@@ -1,25 +1,24 @@
 package com.estoic.api.interfaces;
 
 import com.estoic.api.dtos.PensadorDto.PensadorRequest;
-import com.estoic.api.models.PensadorModel;
+import com.estoic.api.dtos.PensadorDto.PensadorResponse;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public interface IPensadorCrud {
     void registrarPensador(PensadorRequest pensadorRequest);
 
-    PensadorModel recuperarPensadorPeloId(Long id);
+    Optional<PensadorResponse> recuperarPensadorPorNome(String nome);
 
-    PensadorModel recuperarPensadorPorNome(String nome);
+    Optional<List<PensadorResponse>> recuperarTodosOsPensadores();
 
-    List<PensadorModel> recuperarTodosOsPensadores();
+    Optional<List<PensadorResponse>> recuperarPensadoresPorDataNascimento(Date data_nascimento);
 
-    List<PensadorModel> recuperarPensadoresPorDataNascimento(Date data_nascimento);
+    Optional<List<PensadorResponse>> recuperarPensadoresPorDataMorte(Date data_morte);
 
-    List<PensadorModel> recuperarPensadoresPorDataMorte(Date data_morte);
+    Optional<List<PensadorResponse>> recuperarPensadoresPorLocalNascimento(String local_nascimento);
 
-    List<PensadorModel> recuperarPensadoresPorLocalNascimento(String local_nascimento);
-
-    List<PensadorModel> recuperarPensadorPorObra(String nome_obra);
+    Optional<List<PensadorResponse>> recuperarPensadorPorObra(String nome_obra);
 }
