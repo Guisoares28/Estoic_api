@@ -9,9 +9,8 @@ import com.estoic.api.repositories.PensadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class PensadorService implements IPensadorCrud {
@@ -29,32 +28,39 @@ public class PensadorService implements IPensadorCrud {
     }
 
     @Override
-    public Optional<PensadorResponse> recuperarPensadorPorNome(String nome) {
-        return Optional.empty();
+    public PensadorResponse recuperarPensadorPorNome(String nome) {
+        PensadorModel pensadorEncontrado = pensadorRepository.findByNomeIgnoreCase(nome)
+                .orElseThrow(() -> new RuntimeException("Não foi encontrado nenhum Pensador com este nome"));
+        return PConversor.converterModelParaResponse(pensadorEncontrado);
     }
 
     @Override
-    public Optional<List<PensadorResponse>> recuperarTodosOsPensadores() {
-        return Optional.empty();
+    public List<PensadorResponse> recuperarTodosOsPensadores() {
+        List<PensadorModel> pensadoresModels = pensadorRepository.findAll();
+        return PConversor.converterModelParaResponse(pensadoresModels);
     }
 
     @Override
-    public Optional<List<PensadorResponse>> recuperarPensadoresPorAnoNascimento(Integer ano_nascimento) {
-        return Optional.empty();
+    public List<PensadorResponse> recuperarPensadoresPorAnoNascimento(Integer ano_nascimento) {
+        List<PensadorModel> pensadoresModels = pensadorRepository.findByAnoNascimento(ano_nascimento)
+                .orElseThrow(() -> new RuntimeException("Nenhum pensador encontrado com está data"));
+        return PConversor.converterModelParaResponse(pensadoresModels);
     }
 
     @Override
-    public Optional<List<PensadorResponse>> recuperarPensadoresPorAnoDaMorte(Integer ano_morte) {
-        return Optional.empty();
+    public List<PensadorResponse> recuperarPensadoresPorAnoDaMorte(Integer ano_morte) {
+        List<PensadorModel> pensadoresModels = pensadorRepository.findByAnoMorte(ano_morte)
+                .orElseThrow(() -> new RuntimeException("Nenhum pensador encontrado com está data"));
+        return PConversor.converterModelParaResponse(pensadoresModels);
     }
 
     @Override
-    public Optional<List<PensadorResponse>> recuperarPensadoresPorLocalNascimento(String local_nascimento) {
-        return Optional.empty();
+    public List<PensadorResponse> recuperarPensadoresPorLocalNascimento(String local_nascimento) {
+        return null;
     }
 
     @Override
-    public Optional<List<PensadorResponse>> recuperarPensadorPorObra(String nome_obra) {
-        return Optional.empty();
+    public List<PensadorResponse> recuperarPensadorPorObra(String nome_obra) {
+        return null;
     }
 }

@@ -10,15 +10,15 @@ import java.util.Optional;
 public interface IPensadorCrud {
     void registrarPensador(PensadorRequest pensadorRequest);
 
-    Optional<PensadorResponse> recuperarPensadorPorNome(String nome);
+    PensadorResponse recuperarPensadorPorNome(String nome);
 
-    Optional<List<PensadorResponse>> recuperarTodosOsPensadores();
+    List<PensadorResponse> recuperarTodosOsPensadores();
 
-    Optional<List<PensadorResponse>> recuperarPensadoresPorAnoNascimento(Integer ano_nascimento);
+    List<PensadorResponse> recuperarPensadoresPorAnoNascimento(Integer ano_nascimento);
 
-    Optional<List<PensadorResponse>> recuperarPensadoresPorAnoDaMorte(Integer ano_morte);
+    List<PensadorResponse> recuperarPensadoresPorAnoDaMorte(Integer ano_morte);
 
-    Optional<List<PensadorResponse>> recuperarPensadoresPorLocalNascimento(String local_nascimento);
+    List<PensadorResponse> recuperarPensadoresPorLocalNascimento(String local_nascimento);
 
-    Optional<List<PensadorResponse>> recuperarPensadorPorObra(String nome_obra);
+    List<PensadorResponse> recuperarPensadorPorObra(String nome_obra);
 }

@@ -19,13 +19,13 @@ public class PensadorModel {
 
     private String nome_completo;
 
-    private Integer ano_nascimento;
+    private Integer anoNascimento;
 
-    private Integer ano_morte;
+    private Integer anoMorte;
 
-    private String local_nascimento;
+    private String localNascimento;
 
-    private String biografia_resumida;
+    private String biografia;
 
     @OneToMany(mappedBy = "pensador", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<ObraModel> obras = new HashSet<>();
@@ -33,13 +33,16 @@ public class PensadorModel {
     @OneToMany(mappedBy = "pensador", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<FraseModel> frases = new HashSet<>();
 
-    public PensadorModel(String nome, String nome_completo, Integer ano_nascimento, Integer ano_morte, String local_nascimento, String biografia_resumida) {
+    public PensadorModel() {
+    }
+
+    public PensadorModel(String nome, String nome_completo, Integer anoNascimento, Integer anoMorte, String localNascimento, String biografia) {
         this.nome = nome;
         this.nome_completo = nome_completo;
-        this.ano_nascimento = ano_nascimento;
-        this.ano_morte = ano_morte;
-        this.local_nascimento = local_nascimento;
-        this.biografia_resumida = biografia_resumida;
+        this.anoNascimento = anoNascimento;
+        this.anoMorte = anoMorte;
+        this.localNascimento = localNascimento;
+        this.biografia = biografia;
     }
 
     public Long getId() {
@@ -58,36 +61,36 @@ public class PensadorModel {
         this.nome = nome;
     }
 
-    public Integer getAno_nascimento() {
-        return ano_nascimento;
+    public Integer getAnoNascimento() {
+        return anoNascimento;
     }
 
-    public void setAno_nascimento(Integer ano_nascimento) {
-        this.ano_nascimento = ano_nascimento;
+    public void setAnoNascimento(Integer anoNascimento) {
+        this.anoNascimento = anoNascimento;
     }
 
-    public Integer getAno_morte() {
-        return ano_morte;
+    public Integer getAnoMorte() {
+        return anoMorte;
     }
 
-    public void setAno_morte(Integer ano_morte) {
-        this.ano_morte = ano_morte;
+    public void setAnoMorte(Integer anoMorte) {
+        this.anoMorte = anoMorte;
     }
 
-    public String getLocal_nascimento() {
-        return local_nascimento;
+    public String getLocalNascimento() {
+        return localNascimento;
     }
 
-    public void setLocal_nascimento(String local_nascimento) {
-        this.local_nascimento = local_nascimento;
+    public void setLocalNascimento(String localNascimento) {
+        this.localNascimento = localNascimento;
     }
 
-    public String getBiografia_resumida() {
-        return biografia_resumida;
+    public String getBiografia() {
+        return biografia;
     }
 
-    public void setBiografia_resumida(String biografia_resumida) {
-        this.biografia_resumida = biografia_resumida;
+    public void setBiografia(String biografia) {
+        this.biografia = biografia;
     }
 
     public Set<ObraModel> getObras() {

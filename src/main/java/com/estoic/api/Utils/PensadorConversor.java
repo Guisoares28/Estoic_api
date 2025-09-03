@@ -7,6 +7,8 @@ import com.estoic.api.models.PensadorModel;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class PensadorConversor implements IPensadorConversor {
@@ -29,15 +31,22 @@ public class PensadorConversor implements IPensadorConversor {
                 pensadorModel.getId(),
                 pensadorModel.getNome(),
                 pensadorModel.getNome_completo(),
-                pensadorModel.getAno_nascimento(),
-                pensadorModel.getAno_morte(),
-                pensadorModel.getLocal_nascimento(),
-                pensadorModel.getBiografia_resumida()
+                pensadorModel.getAnoNascimento(),
+                pensadorModel.getAnoMorte(),
+                pensadorModel.getLocalNascimento(),
+                pensadorModel.getBiografia()
         );
     }
 
     @Override
     public LocalDate converterStringParaLocalDate(String data) {
         return null;
+    }
+
+    @Override
+    public List<PensadorResponse> converterModelParaResponse(List<PensadorModel> pensadoresModels) {
+        return pensadoresModels.stream()
+                .map(this::converterModelParaResponse)
+                .collect(Collectors.toList());
     }
 }
