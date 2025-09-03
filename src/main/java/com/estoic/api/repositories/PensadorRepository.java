@@ -15,4 +15,6 @@ public interface PensadorRepository extends JpaRepository<PensadorModel, Long> {
     Optional<List<PensadorModel>> findByAnoNascimento(Integer anoNascimento);
 
     Optional<List<PensadorModel>> findByAnoMorte(Integer anoMorte);
+
+    Optional<List<PensadorModel>> findByLocalNascimentoContainingIgnoreCase(String local);
 }

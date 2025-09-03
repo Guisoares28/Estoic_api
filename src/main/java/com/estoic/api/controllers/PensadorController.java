@@ -45,4 +45,9 @@ public class PensadorController {
         return ResponseEntity.status(HttpStatus.OK).body(pensadorService.recuperarPensadoresPorAnoDaMorte(anoMorte));
     }
 
+    @GetMapping("/local/{localNascimento}")
+    public ResponseEntity<List<PensadorResponse>> buscarPensadoresPorLocalNascimento(@PathVariable String localNascimento){
+        return ResponseEntity.status(HttpStatus.OK).body(pensadorService.recuperarPensadoresPorLocalNascimento(localNascimento));
+    }
+
 }

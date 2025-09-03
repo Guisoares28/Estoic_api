@@ -55,12 +55,14 @@ public class PensadorService implements IPensadorCrud {
     }
 
     @Override
-    public List<PensadorResponse> recuperarPensadoresPorLocalNascimento(String local_nascimento) {
-        return null;
+    public List<PensadorResponse> recuperarPensadoresPorLocalNascimento(String localNascimento) {
+        List<PensadorModel> pensadoresModels = pensadorRepository.findByLocalNascimentoContainingIgnoreCase(localNascimento)
+                .orElseThrow(() -> new RuntimeException("Nenhum pensador encontrado com o local informado"));
+        return PConversor.converterModelParaResponse(pensadoresModels);
     }
 
     @Override
-    public List<PensadorResponse> recuperarPensadorPorObra(String nome_obra) {
+    public List<PensadorResponse> recuperarPensadorPorObra(String nomeObra) {
         return null;
     }
 }

@@ -18,7 +18,7 @@ public interface IPensadorCrud {
 
     List<PensadorResponse> recuperarPensadoresPorAnoDaMorte(Integer ano_morte);
 
-    List<PensadorResponse> recuperarPensadoresPorLocalNascimento(String local_nascimento);
+    List<PensadorResponse> recuperarPensadoresPorLocalNascimento(String localNascimento);
 
-    List<PensadorResponse> recuperarPensadorPorObra(String nome_obra);
+    List<PensadorResponse> recuperarPensadorPorObra(String nomeObra);
 }
