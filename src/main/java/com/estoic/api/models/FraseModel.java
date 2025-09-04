@@ -13,9 +13,18 @@ public class FraseModel {
 
     private String tema;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "pensador_id")
     private PensadorModel pensador;
+
+    public FraseModel() {
+    }
+
+    public FraseModel(String frase, String tema, PensadorModel pensador) {
+        this.frase = frase;
+        this.tema = tema;
+        this.pensador = pensador;
+    }
 
     public Long getId() {
         return id;

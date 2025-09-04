@@ -7,6 +7,8 @@ public record FraseRequest(
         String frase,
 
         @NotBlank(message = "Tema não pode ser vazio")
-        String tema
+        String tema,
+        @NotBlank(message = "Nome do pensador não pode ser vazio")
+        String nomePensador
 ) {
 }
